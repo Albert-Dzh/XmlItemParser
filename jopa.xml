@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Animes>
+    <Anime id="1" name="Bleach" altname="Burichi" seasons="16" episodes="366" status="Finished" sound="Dubbed" have="All" left="-/-" />
+    <Anime id="2" name="Jopa" altname="Jopa2" seasons="0" episodes="JOPA3" />
+</Animes>
