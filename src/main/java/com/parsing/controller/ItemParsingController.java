@@ -1,6 +1,6 @@
 package com.parsing.controller;
 
-import com.parsing.service.ItemsService;
+import com.parsing.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class ItemsParsingController {
+public class ItemParsingController {
 
-    private final ItemsService itemsService;
-
+    private final ItemService itemService;
 
     @GetMapping(value = "/getItems")
     public String getListInformation() {
-        return itemsService.findCourseInfo().toString();
+        return itemService.findCourseInfo().toString();
     }
 }

@@ -1,12 +1,14 @@
 package com.parsing.dto;
 
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 
 
@@ -16,114 +18,207 @@ import java.io.Serializable;
 public class Item implements Serializable {
 
     @Id
-    @JacksonXmlProperty(isAttribute = true)
+    @XmlAttribute(name = "id")
     private Long id;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "name")
     private String name;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "txt")
     private String txt;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "massa")
     private String massa;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "st")
     private String st;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "made")
     private String made;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "min")
     private String min;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "protect")
     private String protect;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "quality")
     private String quality;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "maxquality")
     private String maxquality;
-    @JacksonXmlProperty(isAttribute = true)
-    @Column(name = "\"OD\"")
+
+    @XmlAttribute(name = "OD")
     private String OD;
-    @JacksonXmlProperty(isAttribute = true)
-    @Column(name = "\"rOD\"")
+
+    @XmlAttribute(name = "rOD")
     private String rOD;
-    @JacksonXmlProperty(isAttribute = true)
-    private double type;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "type")
+    @XmlJavaTypeAdapter(value = ToDoubleAdapter.class)
+    private Double type;
+
+    @XmlAttribute(name = "damage")
     private String damage;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "calibre")
     private String calibre;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "shot")
     private String shot;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "nskill")
     private String nskill;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "max_count")
     private String max_count;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "up")
     private String up;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "grouping")
     private String grouping;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "range")
     private String range;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "nt")
     private String nt;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "build_in")
     private String build_in;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "c")
     private String c;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "radius")
     private String radius;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "cost")
     private String cost;
-    @JacksonXmlProperty(isAttribute = true)
-    private String cost2;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "s1")
     private String s1;
-    @JacksonXmlProperty(isAttribute = true)
+    @XmlAttribute(name = "s2")
     private String s2;
-    @JacksonXmlProperty(isAttribute = true)
+    @XmlAttribute(name = "s3")
     private String s3;
-    @JacksonXmlProperty(isAttribute = true)
+    @XmlAttribute(name = "s4")
     private String s4;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "count")
     private String count;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "lb")
     private String lb;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "dt")
     private String dt;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "hz")
     private String hz;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "res")
     private String res;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "owner")
     private String owner;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "tm")
     private String tm;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "ln")
     private String ln;
 
-    //-------------------------------------
-    @JacksonXmlProperty(isAttribute = true)
+    //-----------------------------
+
+    @XmlAttribute(name = "section")
     private String section;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "lvl")
     private String lvl;
-    @JacksonXmlProperty(isAttribute = true)
+
+    @XmlAttribute(name = "piercing")
     private String piercing;
-    @JacksonXmlProperty(isAttribute = true)
-    String price;
-    @JacksonXmlProperty(isAttribute = true)
-    String PriceType;
-    @JacksonXmlProperty(isAttribute = true)
-    String txt2;
-    @JacksonXmlProperty(isAttribute = true)
-    String hint;
-    @JacksonXmlProperty(isAttribute = true)
-    String gc;
-    @JacksonXmlProperty(isAttribute = true)
-    String X;
-    @JacksonXmlProperty(isAttribute = true)
-    String Y;
 
+    @XmlAttribute(name = "price")
+    private String price;
 
-    public Item() { }
+    @XmlAttribute(name = "PriceType")
+    private String PriceType;
+
+    @XmlAttribute(name = "txt2")
+    private String txt2;
+
+    @XmlAttribute(name = "hint")
+    private String hint;
+
+    @XmlAttribute(name = "gc")
+    private String gc;
+
+    @XmlAttribute(name = "X")
+    private String X;
+
+    @XmlAttribute(name = "Y")
+    private String Y;
+
 
     @Override
     public String toString() {
-        return "\n" + id + " (" + name + ')';
+        return "\nItem " + id +
+                " { name='" + name + '\'' +
+                ", txt='" + txt + '\'' +
+                ", massa='" + massa + '\'' +
+                ", st='" + st + '\'' +
+                ", made='" + made + '\'' +
+                ", min='" + min + '\'' +
+                ", protect='" + protect + '\'' +
+                ", quality='" + quality + '\'' +
+                ", maxquality='" + maxquality + '\'' +
+                ", OD='" + OD + '\'' +
+                ", rOD='" + rOD + '\'' +
+                ", type=" + type +
+                ", damage='" + damage + '\'' +
+                ", calibre='" + calibre + '\'' +
+                ", shot='" + shot + '\'' +
+                ", nskill='" + nskill + '\'' +
+                ", max_count='" + max_count + '\'' +
+                ", up='" + up + '\'' +
+                ", grouping='" + grouping + '\'' +
+                ", range='" + range + '\'' +
+                ", nt='" + nt + '\'' +
+                ", build_in='" + build_in + '\'' +
+                ", c='" + c + '\'' +
+                ", radius='" + radius + '\'' +
+                ", cost='" + cost + '\'' +
+                ", s1='" + s1 + '\'' +
+                ", s2='" + s2 + '\'' +
+                ", s3='" + s3 + '\'' +
+                ", s4='" + s4 + '\'' +
+                ", count='" + count + '\'' +
+                ", lb='" + lb + '\'' +
+                ", dt='" + dt + '\'' +
+                ", hz='" + hz + '\'' +
+                ", res='" + res + '\'' +
+                ", owner='" + owner + '\'' +
+                ", tm='" + tm + '\'' +
+                ", ln='" + ln + '\'' +
+                ", section='" + section + '\'' +
+                ", lvl='" + lvl + '\'' +
+                ", piercing='" + piercing + '\'' +
+                ", price='" + price + '\'' +
+                ", PriceType='" + PriceType + '\'' +
+                ", txt2='" + txt2 + '\'' +
+                ", hint='" + hint + '\'' +
+                ", gc='" + gc + '\'' +
+                ", X='" + X + '\'' +
+                ", Y='" + Y + '\'' +
+                '}';
+    }
+
+    static class ToDoubleAdapter extends XmlAdapter<String, Double> {
+        public Double unmarshal(String v) { return Double.parseDouble(v.replace(",", ".")); }
+
+        public String marshal(Double v) { return v.toString(); }
     }
 }
