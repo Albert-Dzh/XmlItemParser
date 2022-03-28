@@ -8,21 +8,21 @@ import java.io.Serializable;
 import java.util.List;
 
 
-@XmlRootElement(name = "items")
+@XmlRootElement(name = "perks")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ItemsList implements Serializable {
+public class PerksList implements Serializable {
 
     @XmlElement(name = "O")
-    private List<Item> items;
+    private List<Perk> perks;
 
-    public List<Item> getItems() {
-        return items;
+    public List<Perk> getPerks() {
+        return perks;
     }
 
     @Override
     public String toString() {
-        return "ItemsList{" +
-                "items=" + items +
+        return "PerksList{" +
+                "perks=" + perks +
                 '}';
     }
 }

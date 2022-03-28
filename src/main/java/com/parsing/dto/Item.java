@@ -1,5 +1,6 @@
 package com.parsing.dto;
 
+import com.parsing.dto.xmlAdapter.ToDoubleAdapter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,7 +8,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 
@@ -214,11 +214,5 @@ public class Item implements Serializable {
                 ", X='" + X + '\'' +
                 ", Y='" + Y + '\'' +
                 '}';
-    }
-
-    static class ToDoubleAdapter extends XmlAdapter<String, Double> {
-        public Double unmarshal(String v) { return Double.parseDouble(v.replace(",", ".")); }
-
-        public String marshal(Double v) { return v.toString(); }
     }
 }
