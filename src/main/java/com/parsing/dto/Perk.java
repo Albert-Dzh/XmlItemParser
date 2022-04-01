@@ -1,11 +1,9 @@
 package com.parsing.dto;
 
 import com.parsing.dto.xmlAdapter.ToDoubleAdapter;
+import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -15,12 +13,14 @@ import java.io.Serializable;
 
 
 @Entity
+@ToString
 @XmlRootElement(name = "O")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Perk implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "perk_sequence")
+    @SequenceGenerator(name = "perk_sequence", sequenceName = "perk_id_seq", allocationSize = 1)
     private Long id;
 
     @XmlAttribute(name = "name")
@@ -123,43 +123,4 @@ public class Perk implements Serializable {
     @XmlAttribute(name = "price")
     private String price;
 
-    @Override
-    public String toString() {
-        return "\nPerk{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", txt='" + txt + '\'' +
-                ", min='" + min + '\'' +
-                ", damage='" + damage + '\'' +
-                ", max_count='" + max_count + '\'' +
-                ", shot='" + shot + '\'' +
-                ", OD='" + OD + '\'' +
-                ", rOD='" + rOD + '\'' +
-                ", s4='" + s4 + '\'' +
-                ", PriceType='" + PriceType + '\'' +
-                ", X='" + X + '\'' +
-                ", cost='" + cost + '\'' +
-                ", count='" + count + '\'' +
-                ", s2='" + s2 + '\'' +
-                ", s3='" + s3 + '\'' +
-                ", range='" + range + '\'' +
-                ", radius='" + radius + '\'' +
-                ", made='" + made + '\'' +
-                ", res='" + res + '\'' +
-                ", section='" + section + '\'' +
-                ", nt='" + nt + '\'' +
-                ", calibre='" + calibre + '\'' +
-                ", grouping='" + grouping + '\'' +
-                ", quality='" + quality + '\'' +
-                ", nskill='" + nskill + '\'' +
-                ", s1='" + s1 + '\'' +
-                ", hz='" + hz + '\'' +
-                ", type=" + type +
-                ", gc='" + gc + '\'' +
-                ", protect='" + protect + '\'' +
-                ", cost2='" + cost2 + '\'' +
-                ", txt2='" + txt2 + '\'' +
-                ", price='" + price + '\'' +
-                '}';
-    }
 }

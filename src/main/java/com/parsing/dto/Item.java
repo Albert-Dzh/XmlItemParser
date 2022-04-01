@@ -1,9 +1,9 @@
 package com.parsing.dto;
 
 import com.parsing.dto.xmlAdapter.ToDoubleAdapter;
+import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -13,12 +13,14 @@ import java.io.Serializable;
 
 
 @Entity
+@ToString
 @XmlRootElement(name = "O")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Item implements Serializable {
 
     @Id
-    @XmlAttribute(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_sequence")
+    @SequenceGenerator(name = "item_sequence", sequenceName = "item_id_seq", allocationSize = 1)
     private Long id;
 
     @XmlAttribute(name = "name")
@@ -162,57 +164,4 @@ public class Item implements Serializable {
     @XmlAttribute(name = "Y")
     private String Y;
 
-
-    @Override
-    public String toString() {
-        return "\nItem " + id +
-                " { name='" + name + '\'' +
-                ", txt='" + txt + '\'' +
-                ", massa='" + massa + '\'' +
-                ", st='" + st + '\'' +
-                ", made='" + made + '\'' +
-                ", min='" + min + '\'' +
-                ", protect='" + protect + '\'' +
-                ", quality='" + quality + '\'' +
-                ", maxquality='" + maxquality + '\'' +
-                ", OD='" + OD + '\'' +
-                ", rOD='" + rOD + '\'' +
-                ", type=" + type +
-                ", damage='" + damage + '\'' +
-                ", calibre='" + calibre + '\'' +
-                ", shot='" + shot + '\'' +
-                ", nskill='" + nskill + '\'' +
-                ", max_count='" + max_count + '\'' +
-                ", up='" + up + '\'' +
-                ", grouping='" + grouping + '\'' +
-                ", range='" + range + '\'' +
-                ", nt='" + nt + '\'' +
-                ", build_in='" + build_in + '\'' +
-                ", c='" + c + '\'' +
-                ", radius='" + radius + '\'' +
-                ", cost='" + cost + '\'' +
-                ", s1='" + s1 + '\'' +
-                ", s2='" + s2 + '\'' +
-                ", s3='" + s3 + '\'' +
-                ", s4='" + s4 + '\'' +
-                ", count='" + count + '\'' +
-                ", lb='" + lb + '\'' +
-                ", dt='" + dt + '\'' +
-                ", hz='" + hz + '\'' +
-                ", res='" + res + '\'' +
-                ", owner='" + owner + '\'' +
-                ", tm='" + tm + '\'' +
-                ", ln='" + ln + '\'' +
-                ", section='" + section + '\'' +
-                ", lvl='" + lvl + '\'' +
-                ", piercing='" + piercing + '\'' +
-                ", price='" + price + '\'' +
-                ", PriceType='" + PriceType + '\'' +
-                ", txt2='" + txt2 + '\'' +
-                ", hint='" + hint + '\'' +
-                ", gc='" + gc + '\'' +
-                ", X='" + X + '\'' +
-                ", Y='" + Y + '\'' +
-                '}';
-    }
 }
