@@ -21,20 +21,12 @@ public class ItemAndPerkClient {
     public List<Item> getItems() {
         ItemsList response = restTemplate.getForObject(ITEM_URL, ItemsList.class);
 
-        if (response != null) {
-            return response.getItems();
-        }
-
-        return null;
+        return response == null ? null : response.getItems();
     }
 
     public List<Perk> getPerks() {
         PerksList response = restTemplate.getForObject(PERK_URL, PerksList.class);
 
-        if (response != null) {
-            return response.getPerks();
-        }
-
-        return null;
+        return response == null ? null : response.getPerks();
     }
 }
