@@ -17,14 +17,18 @@ public class ParsingController {
     @GetMapping(value = "/getItems")
     public String getItemsInfo() {
         StringJoiner sj = new StringJoiner("\n");
-        itemAndPerkService.findItemsInfo().forEach(i -> sj.add(i.toString()));
+        var items = itemAndPerkService.findItemsInfo();
+        items.forEach(i -> sj.add(i.toString()));
+        sj.add(String.format("TOTAL ITEMS: %d", items.size()));
         return sj.toString();
     }
 
     @GetMapping(value = "/getPerks")
     public String getPerksInfo() {
         StringJoiner sj = new StringJoiner("\n");
-        itemAndPerkService.findPerksInfo().forEach(i -> sj.add(i.toString()));
+        var perks = itemAndPerkService.findPerksInfo();
+        perks.forEach(i -> sj.add(i.toString()));
+        sj.add(String.format("TOTAL PERKS: %d", perks.size()));
         return sj.toString();
     }
 }
